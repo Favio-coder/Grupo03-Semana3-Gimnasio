@@ -28,11 +28,489 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+
     <!-- Tailwind CSS - Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
   </head>
+
   <body>
+
+        <section class="bg-[#171c29] text-white py-5">
+
+        <div class="container py-5">
+
+            <!-- Encabezado -->
+            <div class="row align-items-end mb-5">
+
+            <div class="col-12 col-lg-7">
+                <h2
+                class="display-4 fw-bold text-uppercase leading-tight"
+                >
+                Why our
+                <span class="text-red-500">members love</span>
+                <br>
+                training here
+                </h2>
+            </div>
+
+            <div class="col-12 col-lg-5 mt-3 mt-lg-0">
+                <p class="text-gray-300 text-sm md:text-base lg:text-end max-w-lg lg:ms-auto">
+                Entrena con equipos modernos, profesionales capacitados
+                y programas diseñados para ayudarte a alcanzar tus objetivos.
+                </p>
+            </div>
+
+            </div>
+
+
+            <!-- Bootstrap de 12 columnas -->
+            <div class="row g-4">
+
+            <!-- 1 -->
+
+            <div class="col-12 col-md-4">
+
+                <article
+                class="h-100 overflow-hidden rounded-xl shadow-lg
+                        bg-[#252b3a]
+                        transition-transform duration-300
+                        hover:scale-105"
+                >
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80"
+                    alt="Equipamiento moderno de gimnasio"
+                    class="w-full h-64 object-cover"
+                    >
+
+                    <div
+                    class="absolute inset-0
+                            bg-gradient-to-t
+                            from-[#252b3a]
+                            via-transparent
+                            to-transparent"
+                    ></div>
+
+                </div>
+
+                <div class="p-4">
+
+                    <h3 class="h4 fw-bold text-white">
+                    Equipamiento moderno
+                    </h3>
+
+                    <p class="text-gray-300 text-sm mb-0">
+                    Entrena con máquinas modernas y equipamiento
+                    diseñado para acompañar tu progreso.
+                    </p>
+
+                </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- 2 -->
+
+            <div class="col-12 col-md-4">
+
+                <article
+                class="h-100 overflow-hidden rounded-xl shadow-lg
+                        bg-[#252b3a]
+                        transition-transform duration-300
+                        hover:scale-105"
+                >
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=80"
+                    alt="Entrenador personal guiando un ejercicio"
+                    class="w-full h-64 object-cover"
+                    >
+
+                    <div
+                    class="absolute inset-0
+                            bg-gradient-to-t
+                            from-[#252b3a]
+                            via-transparent
+                            to-transparent"
+                    ></div>
+
+                </div>
+
+                <div class="p-4">
+
+                    <h3 class="h4 fw-bold text-white">
+                    Entrenadores Expertos
+                    </h3>
+
+                    <p class="text-gray-300 text-sm mb-0">
+                    Recibe orientación de profesionales que te ayudarán
+                    a entrenar de manera adecuada.
+                    </p>
+
+                </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- 3 -->
+
+            <div class="col-12 col-md-4">
+
+                <article
+                class="h-100 overflow-hidden rounded-xl shadow-lg
+                        bg-[#252b3a]
+                        transition-transform duration-300
+                        hover:scale-105"
+                >
+
+                <div class="relative overflow-hidden">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80"
+                    alt="Clase grupal de entrenamiento"
+                    class="w-full h-64 object-cover"
+                    >
+
+                    <div
+                    class="absolute inset-0
+                            bg-gradient-to-t
+                            from-[#252b3a]
+                            via-transparent
+                            to-transparent"
+                    ></div>
+
+                </div>
+
+                <div class="p-4">
+
+                    <h3 class="h4 fw-bold text-white">
+                    Clases en Grupo
+                    </h3>
+
+                    <p class="text-gray-300 text-sm mb-0">
+                    Participa en clases grupales y mantén la motivación
+                    mientras entrenas junto a otros miembros.
+                    </p>
+
+                </div>
+
+                </article>
+
+            </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 5. FORMULARIO Y ACCECIBILIDAD -->
+
+        <div class="container py-5">
+
+            <div class="row justify-content-center">
+
+            <div class="col-12 col-lg-8">
+
+                <div
+                class="bg-white text-gray-900
+                        rounded-xl shadow-lg
+                        p-4 p-md-5"
+                >
+
+                <!-- Título -->
+                <div class="text-center mb-5">
+
+                    <h2 class="display-5 fw-bold text-uppercase">
+                    Reserve Ahora
+                    <span class="text-red-600">plan</span>
+                    </h2>
+
+                    <p class="text-secondary mb-0">
+                    Completa tus datos y elige el entrenamiento
+                    que deseas realizar.
+                    </p>
+
+                </div>
+
+
+                <!-- Formulario -->
+                <form
+                    id="formularioContacto"
+                    novalidate
+                >
+
+                    <div class="row g-4">
+
+                    <!--nombre-->
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                        for="nombre"
+                        class="form-label fw-semibold"
+                        >
+                        Nombre completo
+                        </label>
+
+                        <input
+                        type="text"
+                        class="form-control"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Ej. Juan Pérez"
+                        required
+                        aria-describedby="nombreError nombreValido"
+                        >
+
+                        <div
+                        id="nombreError"
+                        class="invalid-feedback"
+                        >
+                        Por favor, ingresa tu nombre completo.
+                        </div>
+
+                        <div
+                        id="nombreValido"
+                        class="valid-feedback"
+                        >
+                        Nombre válido.
+                        </div>
+
+                    </div>
+
+
+                    <!-- correo -->
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                        for="correo"
+                        class="form-label fw-semibold"
+                        >
+                        Correo electrónico
+                        </label>
+
+                        <input
+                        type="email"
+                        class="form-control"
+                        id="correo"
+                        name="correo"
+                        placeholder="ejemplo@correo.com"
+                        required
+                        aria-describedby="correoError correoValido"
+                        >
+
+                        <div
+                        id="correoError"
+                        class="invalid-feedback"
+                        >
+                        Ingresa un correo electrónico válido.
+                        </div>
+
+                        <div
+                        id="correoValido"
+                        class="valid-feedback"
+                        >
+                        Correo válido.
+                        </div>
+
+                    </div>
+
+
+                    <!-- telefono -->
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                        for="telefono"
+                        class="form-label fw-semibold"
+                        >
+                        Número de teléfono
+                        </label>
+
+                        <input
+                        type="tel"
+                        class="form-control"
+                        id="telefono"
+                        name="telefono"
+                        placeholder="987654321"
+                        pattern="[0-9]{9}"
+                        required
+                        aria-describedby="telefonoError telefonoValido"
+                        >
+
+                        <div
+                        id="telefonoError"
+                        class="invalid-feedback"
+                        >
+                        Ingresa un número de teléfono de 9 dígitos.
+                        </div>
+
+                        <div
+                        id="telefonoValido"
+                        class="valid-feedback"
+                        >
+                        Número válido.
+                        </div>
+
+                    </div>
+
+
+                    <!-- plan -->
+
+                    <div class="col-12 col-md-6">
+
+                        <label
+                        for="plan"
+                        class="form-label fw-semibold"
+                        >
+                        Plan de entrenamiento
+                        </label>
+
+                        <select
+                        class="form-select"
+                        id="plan"
+                        name="plan"
+                        required
+                        aria-describedby="planError planValido"
+                        >
+
+                        <option
+                            value=""
+                            selected
+                            disabled
+                        >
+                            Selecciona un plan
+                        </option>
+
+                        <option value="basico">
+                            Basic Plan - S/ 70
+                        </option>
+
+                        <option value="pro">
+                            Pro Plan - S/ 110
+                        </option>
+
+                        <option value="elite">
+                            Elite Plan - S/ 180
+                        </option>
+
+                        </select>
+
+                        <div
+                        id="planError"
+                        class="invalid-feedback"
+                        >
+                        Selecciona un plan.
+                        </div>
+
+                        <div
+                        id="planValido"
+                        class="valid-feedback"
+                        >
+                        Plan seleccionado.
+                        </div>
+
+                    </div>
+
+
+                    <!-- mensaje-->
+
+                    <div class="col-12">
+
+                        <label
+                        for="mensaje"
+                        class="form-label fw-semibold"
+                        >
+                        Mensaje
+                        </label>
+
+                        <textarea
+                        class="form-control"
+                        id="mensaje"
+                        name="mensaje"
+                        rows="4"
+                        placeholder="Cuéntanos qué tipo de entrenamiento buscas..."
+                        required
+                        aria-describedby="mensajeError mensajeValido"
+                        ></textarea>
+
+                        <div
+                        id="mensajeError"
+                        class="invalid-feedback"
+                        >
+                        Escribe un mensaje.
+                        </div>
+
+                        <div
+                        id="mensajeValido"
+                        class="valid-feedback"
+                        >
+                        Mensaje válido.
+                        </div>
+
+                    </div>
+
+
+                    <!-- =============================== -->
+                    <!-- BOTÓN                            -->
+                    <!-- =============================== -->
+
+                    <div class="col-12">
+
+                        <button
+                        type="submit"
+                        class="w-full
+                                bg-[#f51f3d]
+                                hover:bg-[#d91832]
+                                text-white
+                                fw-bold
+                                py-3
+                                rounded-xl
+                                border-0
+                                transition
+                                duration-300"
+                        >
+                        RESERVAR MI PLAN
+                        </button>
+
+                    </div>
+
+                    </div>
+
+
+                    <!-- Mensaje de éxito -->
+
+                    <div
+                    id="mensajeExito"
+                    class="alert alert-success mt-4 d-none"
+                    role="alert"
+                    >
+                    ¡Solicitud enviada correctamente!
+                    Nos pondremos en contacto contigo.
+                    </div>
+
+                </form>
+
+                </div>
+
+            </div>
+
+            </div>
+
+        </div>
+
+        </section>
+
+
     <!-- Bootstrap 5.3.3 - JS --> 
     <script src="./script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" ></script>

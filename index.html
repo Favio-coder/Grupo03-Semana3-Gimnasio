@@ -23,111 +23,215 @@
     <!-- Mejorando Títutlo de busqueda -->
     <title>GIMNASIO HUANCAYO</title>
 
+    <!-- =================================================
+         PASO 1 - CDNs
+         Sin @import en CSS local: todo por CDN.
+    ================================================== -->
+
     <!-- Bootstrap 5.3.3 - CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
 
+    <!-- Tailwind CSS - Play CDN (solo desarrollo) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gym: {
+                bg: "#171c29",
+                card: "#252b3a",
+                red: "#f51f3d",
+                redDark: "#d91832",
+              },
+            },
+          },
+        },
+      };
+    </script>
   </head>
-  <body>
-    <!-- Navbar -->
+
+  <!-- pt-24: compensa la altura del navbar fijo -->
+  <body class="bg-gym-bg text-white pt-24 pb-10 antialiased">
+    <!-- =================================================
+         PASO 2 - NAVBAR (100% Tailwind)
+
+         Hamburguesa: checkbox oculto + variante peer-checked.
+         Dropdown: <details>/<summary> nativo.
+         Ambos sin JavaScript adicional.
+    ================================================== -->
+
     <nav
-      class="navbar navbar-expand-lg bg-dark navbar-dark shadow-lg py-3 backdrop-blur"
+      class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-gym-bg/95 py-3 shadow-lg backdrop-blur-md"
     >
-      <div class="container">
-        <!-- Logo / Marca -->
-        <a class="navbar-brand fw-bold" href="#"> GYM HUANCAYO </a>
+      <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-y-3 px-4">
+        <!-- Control del menú móvil (oculto visualmente) -->
+        <input type="checkbox" id="navToggle" class="peer sr-only" />
 
-        <!-- Botón hamburguesa -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarGym"
-          aria-controls="navbarGym"
-          aria-expanded="false"
-          aria-label="Abrir menú de navegación"
+        <!-- LOGO -->
+        <a
+          href="#"
+          class="mr-auto text-xl font-black tracking-tight text-white no-underline transition-transform duration-300 hover:scale-105 md:text-2xl"
         >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+          GYM
+          <span class="text-gym-red">HUANCAYO</span>
+        </a>
 
-        <!-- Contenido de la Navbar -->
-        <div class="collapse navbar-collapse" id="navbarGym">
-          <!-- Menú -->
-          <ul class="navbar-nav ms-auto align-items-lg-center">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
+        <!-- BOTÓN HAMBURGUESA -->
+        <label
+          for="navToggle"
+          aria-label="Abrir menú de navegación"
+          class="cursor-pointer rounded-xl border border-white/20 p-2 transition-all duration-300 hover:border-gym-red hover:bg-gym-red/10 lg:hidden"
+        >
+          <svg
+            class="h-6 w-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </label>
+
+        <!-- MENÚ -->
+        <div
+          class="hidden w-full peer-checked:block lg:block lg:w-auto"
+          id="navbarGym"
+        >
+          <ul
+            class="mt-3 flex list-none flex-col gap-1 pl-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-2"
+          >
+            <!-- INICIO -->
+            <li>
+              <a
+                href="#"
+                class="block rounded-lg px-4 py-2 font-semibold text-white no-underline transition-all duration-300 hover:bg-white/5 hover:text-gym-red"
+              >
                 Inicio
               </a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#nosotros"> Nosotros </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#servicios"> Servicios </a>
-            </li>
-
-            <!-- Dropdown -->
-            <li class="nav-item dropdown">
+            <!-- NOSOTROS -->
+            <li>
               <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+                href="#nosotros"
+                class="block rounded-lg px-4 py-2 font-semibold text-white no-underline transition-all duration-300 hover:bg-white/5 hover:text-gym-red"
               >
-                Entrenamientos
+                Nosotros
               </a>
-
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="#musculacion">
-                    🏋️ Musculación
-                  </a>
-                </li>
-
-                <li>
-                  <a class="dropdown-item" href="#cardio"> 🏃 Cardio </a>
-                </li>
-
-                <li>
-                  <a class="dropdown-item" href="#funcional">
-                    🔥 Entrenamiento funcional
-                  </a>
-                </li>
-
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-
-                <li>
-                  <a class="dropdown-item" href="#personalizado">
-                    ⭐ Entrenamiento personalizado
-                  </a>
-                </li>
-              </ul>
             </li>
 
-            <!-- Badge de notificación -->
-            <li class="nav-item">
-              <a class="nav-link position-relative" href="#promociones">
+            <!-- SERVICIOS -->
+            <li>
+              <a
+                href="#servicios"
+                class="block rounded-lg px-4 py-2 font-semibold text-white no-underline transition-all duration-300 hover:bg-white/5 hover:text-gym-red"
+              >
+                Servicios
+              </a>
+            </li>
+
+            <!-- DROPDOWN (details = abre al hacer clic, sin JS) -->
+            <li>
+              <details class="group lg:relative">
+                <summary
+                  class="flex cursor-pointer list-none items-center gap-1 rounded-lg px-4 py-2 font-semibold text-white transition-all duration-300 hover:bg-white/5 hover:text-gym-red"
+                >
+                  Entrenamientos
+                  <svg
+                    class="h-4 w-4 transition-transform duration-300 group-open:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </summary>
+
+                <ul
+                  class="mt-2 flex list-none flex-col gap-1 rounded-xl border border-white/10 bg-gym-card p-2 pl-2 shadow-2xl lg:absolute lg:left-0 lg:top-full lg:w-64"
+                >
+                  <li>
+                    <a
+                      href="#musculacion"
+                      class="block rounded-lg px-3 py-2 text-white no-underline transition-all duration-200 hover:bg-gym-red hover:text-white"
+                    >
+                      🏋️ Musculación
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="#cardio"
+                      class="block rounded-lg px-3 py-2 text-white no-underline transition-all duration-200 hover:bg-gym-red hover:text-white"
+                    >
+                      🏃 Cardio
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="#funcional"
+                      class="block rounded-lg px-3 py-2 text-white no-underline transition-all duration-200 hover:bg-gym-red hover:text-white"
+                    >
+                      🔥 Entrenamiento funcional
+                    </a>
+                  </li>
+
+                  <li aria-hidden="true">
+                    <hr class="my-1 border-white/10" />
+                  </li>
+
+                  <li>
+                    <a
+                      href="#personalizado"
+                      class="block rounded-lg px-3 py-2 text-white no-underline transition-all duration-200 hover:bg-gym-red hover:text-white"
+                    >
+                      ⭐ Entrenamiento personalizado
+                    </a>
+                  </li>
+                </ul>
+              </details>
+            </li>
+
+            <!-- PROMOCIONES + BADGE -->
+            <li>
+              <a
+                href="#promociones"
+                class="relative block rounded-lg px-4 py-2 font-semibold text-white no-underline transition-all duration-300 hover:bg-white/5 hover:text-gym-red"
+              >
                 Promociones
 
                 <span
-                  class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle"
+                  class="absolute -top-1 right-0 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-gym-red px-1 text-[10px] font-black text-white shadow-lg shadow-red-500/30 lg:right-1"
                 >
                   3
                 </span>
               </a>
             </li>
 
-            <!-- Botón contacto -->
-            <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-              <a href="#contacto" class="btn btn-warning fw-bold px-4">
-                ¡Únete ahora!
+            <!-- CTA -->
+            <li class="mt-3 lg:ml-3 lg:mt-0">
+              <a
+                href="#contacto"
+                class="block rounded-xl bg-gym-red px-6 py-3 text-center font-black text-white no-underline shadow-lg shadow-red-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-gym-redDark hover:shadow-red-500/40"
+              >
+                ¡ÚNETE AHORA!
               </a>
             </li>
           </ul>
@@ -136,19 +240,268 @@
     </nav>
 
     <!-- Contenido temporal -->
-    <main class="container py-5">
-      <!-- Hero Section -->
-      <div>
+    <main class="mx-auto max-w-7xl px-4">
+      <section id="nosotros" class="py-16">
+        <!-- Encabezado -->
+        <div class="mb-12 grid gap-6 lg:grid-cols-12 lg:items-end">
+          <div class="lg:col-span-7">
+            <h2 class="text-4xl font-bold uppercase leading-tight md:text-5xl">
+              Entrena
+              <span class="text-gym-red">con Pasión</span>
+              <br />
+              con NOSOTROS
+            </h2>
+          </div>
 
-      </div>
+          <div class="lg:col-span-5">
+            <p class="max-w-lg text-sm text-gray-300 md:text-base lg:ml-auto lg:text-right">
+              Entrena con equipos modernos, profesionales capacitados y
+              programas diseñados para ayudarte a alcanzar tus objetivos.
+            </p>
+          </div>
+        </div>
 
-      <!-- Grid Section -->
-      <div>
+        <!-- Tarjetas -->
+        <div id="servicios" class="grid gap-6 md:grid-cols-3">
+          <!-- 1 -->
+          <article
+            class="overflow-hidden rounded-xl bg-gym-card shadow-lg transition-transform duration-300 hover:scale-105"
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80"
+                alt="Equipamiento moderno de gimnasio"
+                class="h-64 w-full object-cover"
+              />
 
-      </div>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-gym-card via-transparent to-transparent"
+              ></div>
+            </div>
+
+            <div class="p-5">
+              <h3 class="mb-2 text-xl font-bold text-white">
+                Equipamiento moderno
+              </h3>
+
+              <p class="text-sm text-gray-300">
+                Entrena con máquinas modernas y equipamiento diseñado para
+                acompañar tu progreso.
+              </p>
+            </div>
+          </article>
+
+          <!-- 2 -->
+          <article
+            class="overflow-hidden rounded-xl bg-gym-card shadow-lg transition-transform duration-300 hover:scale-105"
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=80"
+                alt="Entrenador personal guiando un ejercicio"
+                class="h-64 w-full object-cover"
+              />
+
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-gym-card via-transparent to-transparent"
+              ></div>
+            </div>
+
+            <div class="p-5">
+              <h3 class="mb-2 text-xl font-bold text-white">
+                Entrenadores Expertos
+              </h3>
+
+              <p class="text-sm text-gray-300">
+                Recibe orientación de profesionales que te ayudarán a entrenar
+                de manera adecuada.
+              </p>
+            </div>
+          </article>
+
+          <!-- 3 -->
+          <article
+            class="overflow-hidden rounded-xl bg-gym-card shadow-lg transition-transform duration-300 hover:scale-105"
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80"
+                alt="Clase grupal de entrenamiento"
+                class="h-64 w-full object-cover"
+              />
+
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-gym-card via-transparent to-transparent"
+              ></div>
+            </div>
+
+            <div class="p-5">
+              <h3 class="mb-2 text-xl font-bold text-white">Clases en Grupo</h3>
+
+              <p class="text-sm text-gray-300">
+                Participa en clases grupales y mantén la motivación mientras
+                entrenas junto a otros miembros.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 5. FORMULARIO Y ACCESIBILIDAD -->
+      <section id="contacto" class="py-16">
+        <div class="mx-auto max-w-3xl rounded-xl bg-white p-6 text-gray-900 shadow-lg md:p-10">
+          <!-- Título -->
+          <div class="mb-10 text-center">
+            <h2 class="mb-2 text-3xl font-bold uppercase md:text-4xl">
+              Reserve Ahora
+              <span class="text-gym-red">plan</span>
+            </h2>
+
+            <p class="text-gray-500">
+              Completa tus datos y elige el entrenamiento que deseas realizar.
+            </p>
+          </div>
+
+          <!-- Formulario -->
+          <form id="formularioContacto" novalidate>
+            <div class="grid gap-6 md:grid-cols-2">
+              <!-- nombre -->
+              <div>
+                <label for="nombre" class="mb-2 block font-semibold">
+                  Nombre completo
+                </label>
+
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  placeholder="Ej. Juan Pérez"
+                  required
+                  aria-describedby="nombreAyuda"
+                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 outline-none transition focus:border-gym-red focus:ring-2 focus:ring-gym-red/30"
+                />
+
+                <p id="nombreAyuda" class="mt-1 text-xs text-gray-500">
+                  Ingresa tu nombre completo.
+                </p>
+              </div>
+
+              <!-- correo -->
+              <div>
+                <label for="correo" class="mb-2 block font-semibold">
+                  Correo electrónico
+                </label>
+
+                <input
+                  type="email"
+                  id="correo"
+                  name="correo"
+                  placeholder="ejemplo@correo.com"
+                  required
+                  aria-describedby="correoAyuda"
+                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 outline-none transition focus:border-gym-red focus:ring-2 focus:ring-gym-red/30"
+                />
+
+                <p id="correoAyuda" class="mt-1 text-xs text-gray-500">
+                  Ingresa un correo electrónico válido.
+                </p>
+              </div>
+
+              <!-- telefono -->
+              <div>
+                <label for="telefono" class="mb-2 block font-semibold">
+                  Número de teléfono
+                </label>
+
+                <input
+                  type="tel"
+                  id="telefono"
+                  name="telefono"
+                  placeholder="987654321"
+                  pattern="[0-9]{9}"
+                  required
+                  aria-describedby="telefonoAyuda"
+                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 outline-none transition focus:border-gym-red focus:ring-2 focus:ring-gym-red/30"
+                />
+
+                <p id="telefonoAyuda" class="mt-1 text-xs text-gray-500">
+                  9 dígitos, sin espacios.
+                </p>
+              </div>
+
+              <!-- plan -->
+              <div>
+                <label for="plan" class="mb-2 block font-semibold">
+                  Plan de entrenamiento
+                </label>
+
+                <select
+                  id="plan"
+                  name="plan"
+                  required
+                  aria-describedby="planAyuda"
+                  class="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 outline-none transition focus:border-gym-red focus:ring-2 focus:ring-gym-red/30"
+                >
+                  <option value="" selected disabled>Selecciona un plan</option>
+
+                  <option value="basico">Basic Plan - S/ 70</option>
+
+                  <option value="pro">Pro Plan - S/ 110</option>
+
+                  <option value="elite">Elite Plan - S/ 180</option>
+                </select>
+
+                <p id="planAyuda" class="mt-1 text-xs text-gray-500">
+                  Elige el plan que más te convenga.
+                </p>
+              </div>
+
+              <!-- mensaje -->
+              <div class="md:col-span-2">
+                <label for="mensaje" class="mb-2 block font-semibold">
+                  Mensaje
+                </label>
+
+                <textarea
+                  id="mensaje"
+                  name="mensaje"
+                  rows="4"
+                  placeholder="Cuéntanos qué tipo de entrenamiento buscas..."
+                  required
+                  aria-describedby="mensajeAyuda"
+                  class="w-full rounded-lg border border-gray-300 px-4 py-2.5 outline-none transition focus:border-gym-red focus:ring-2 focus:ring-gym-red/30"
+                ></textarea>
+
+                <p id="mensajeAyuda" class="mt-1 text-xs text-gray-500">
+                  Escribe un mensaje breve.
+                </p>
+              </div>
+
+              <!-- boton -->
+              <div class="md:col-span-2">
+                <button
+                  type="submit"
+                  class="w-full rounded-xl bg-gym-red py-3 font-bold text-white transition duration-300 hover:bg-gym-redDark"
+                >
+                  RESERVAR MI PLAN
+                </button>
+              </div>
+            </div>
+
+            <div
+              id="mensajeExito"
+              class="mt-6 hidden rounded-lg border border-green-300 bg-green-100 px-4 py-3 text-green-800"
+              role="alert"
+            >
+              ¡Solicitud enviada correctamente! Nos pondremos en contacto
+              contigo.
+            </div>
+          </form>
+        </div>
+      </section>
     </main>
 
-    <!-- JavaScript de Bootstrap -->
+    <!-- Bootstrap 5.3.3 - JS (incluido por el Paso 1) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
